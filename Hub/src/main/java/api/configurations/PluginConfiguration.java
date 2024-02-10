@@ -21,7 +21,7 @@ public class PluginConfiguration extends OkaeriConfig {
     @Comment("")
     @Comment("USTAWIENIA REDIS")
     public String redisurl  = "redis://127.0.0.1:6379";  
-    public String redispassword  = "mtk11";    
+    public String redispassword  = "xddd";    
     @Comment("")
     @Comment("OTHER")
     private String spawnregion  = "srodek";
