@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
-
 import api.data.UserProfile;
 import api.managers.ItemsManager;
 import api.managers.UserAccountManager;
@@ -18,7 +17,7 @@ import pl.textr.boxpvp.utils.ItemBuilder;
 public class SzamanMenu {
   public static void show(Player p) {
     Inventory inv = Bukkit.createInventory(p, 54, ChatUtil.fixColor("&eSzaman"));
-   UserProfile user = UserAccountManager.getUser(p);
+    UserProfile user = UserAccountManager.getUser(p);
    
     ItemBuilder perk1 = (new ItemBuilder(Material.BEETROOT_SOUP))
     		.setTitle(ChatUtil.translateHexColorCodes("&#00ff00&lP&#00f500&le&#00eb00&lr&#00e000&lk &#00d600&lz&#00cc00&ld&#00c200&lr&#00b800&lo&#00ad00&lw&#00a300&li&#009900&la"))
@@ -144,181 +143,68 @@ public class SzamanMenu {
               .addLore(ChatUtil.translateHexColorCodes("&#ff99cc&lK&#fc96c9&ll&#f993c6&li&#f690c3&lk&#f38dc0&ln&#f08abd&li&#ed87ba&lj &#ea84b7&la&#e781b4&lb&#e47eb1&ly &#e17bae&lu&#de78ab&ll&#db75a8&le&#d872a5&lp&#d56fa2&ls&#d26c9f&lz&#cf699c&ly&#cc6699&lc"))
               .addLore(ChatUtil.fixColor(""));
 
-      ItemBuilder.fillGui(inv);
+    ItemBuilder.fillGui(inv);
     inv.setItem(19, perk1.ToItemStack());
     inv.setItem(20, perk2.ToItemStack());
     inv.setItem(21, perk3.ToItemStack());
     inv.setItem(22, perk4.ToItemStack());
     inv.setItem(23, perk5.ToItemStack());
-      inv.setItem(24, perk6.ToItemStack());
-      inv.setItem(25, perk7.ToItemStack());
-
-
-      p.openInventory(inv);
-  }
-
-  
-  public static void resetPerki(Player p) {
-      UserProfile user = UserAccountManager.getUser(p);
-      if (user == null)
-          return;
-      //oddanie odlamkow za perk zycia
-      if (user.getPerkZycia() == 1) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-      if (user.getPerkZycia() == 2) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-  }
-    if (user.getPerkZycia() == 3) {
-        p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkZycia() == 4) {
-        p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkSzybkosci() == 1) {
-        p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    //oddanie odlamkow za perk sily
-    if (user.getPerkSily() == 1) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkSily() == 2) {
-     p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkSily() == 3) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkSily() == 4) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    //oddanie odlamkow za perk szybkosciataku
-    if (user.getPerkSzybkosciAtaku() == 1) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkSzybkosciAtaku() == 2) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkSzybkosciAtaku() == 3) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkSzybkosciAtaku() == 4) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    //oddanie odlamkow za perk PerkWampiryzmu
-    if (user.getPerkWampiryzmu() == 1) {
-     p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkWampiryzmu() == 2) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkWampiryzmu() == 3) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-    if (user.getPerkWampiryzmu() == 4) {
-    p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-    }
-      //oddanie odlamkow za perk perk dropu
-      if (user.getPerkDropu() == 1) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-      if (user.getPerkDropu() == 2) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-      if (user.getPerkDropu() == 3) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-      if (user.getPerkDropu() == 4) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-      //oddanie odlamkow za perk perk Rankingu
-      if (user.getPerkRankingu() == 1) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-      if (user.getPerkRankingu() == 2) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-      if (user.getPerkRankingu() == 3) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-      if (user.getPerkRankingu() == 4) {
-          p.getInventory().addItem(new ItemStack(ItemsManager.getodlamek(50)));
-      }
-    p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20.0D);
-    p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1D);
-    p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(2.0D);
-    p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(4.0D);
-    user.setPerkZycia(0);
-    user.setPerkSzybkosci(0);
-    user.setPerkSily(0);
-    user.setPerkSzybkosciAtaku(0);
-    user.setPerkWampiryzmu(0);
-    user.setPerkDropu(0);
-    user.save();
+    inv.setItem(24, perk6.ToItemStack());
+    inv.setItem(25, perk7.ToItemStack());
+    p.openInventory(inv);
   }
   
-  public static void checkPerki(Player p) {
-   UserProfile user = UserAccountManager.getUser(p);
-    if (user == null)
-      return; 
-    
-      if (user.getPerkZycia() == 0) {
+      public static void resetPerki(Player p) {
+        UserProfile user = UserAccountManager.getUser(p);
+
+        if (user.getPerkZycia() >= 1 && user.getPerkZycia() <= 4) {
+            p.getInventory().addItem(new ItemStack(ItemsManager.getEsencjaAnubisa(getIloscEsencjiAnubisa(user.getPerkZycia()))));
+        }
+
+        if (user.getPerkSzybkosci() == 1) {
+            p.getInventory().addItem(new ItemStack(ItemsManager.getEsencjaAnubisa(50)));
+        }
+
+        if (user.getPerkSily() >= 1 && user.getPerkSily() <= 4) {
+            p.getInventory().addItem(new ItemStack(ItemsManager.getEsencjaAnubisa(getIloscEsencjiAnubisa(user.getPerkSily()))));
+        }
+
+        if (user.getPerkSzybkosciAtaku() >= 1 && user.getPerkSzybkosciAtaku() <= 4) {
+            p.getInventory().addItem(new ItemStack(ItemsManager.getEsencjaAnubisa(getIloscEsencjiAnubisa(user.getPerkSzybkosciAtaku()))));
+        }
+
+        if (user.getPerkWampiryzmu() >= 1 && user.getPerkWampiryzmu() <= 4) {
+            p.getInventory().addItem(new ItemStack(ItemsManager.getEsencjaAnubisa(getIloscEsencjiAnubisa(user.getPerkWampiryzmu()))));
+        }
+
+        if (user.getPerkDropu() >= 1 && user.getPerkDropu() <= 4) {
+            p.getInventory().addItem(new ItemStack(ItemsManager.getEsencjaAnubisa(getIloscEsencjiAnubisa(user.getPerkDropu()))));
+        }
+
+        if (user.getPerkRankingu() >= 1 && user.getPerkRankingu() <= 4) {
+            p.getInventory().addItem(new ItemStack(ItemsManager.getEsencjaAnubisa(getIloscEsencjiAnubisa(user.getPerkRankingu()))));
+        }
+
         p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20.0D);
-      }
-      if (user.getPerkZycia() == 1) {
-        p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(Main.getPlugin().getConfiguration().getPerkZycia1());
-      }
-      if (user.getPerkZycia() == 2) {
-        p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(Main.getPlugin().getConfiguration().getPerkZycia2());
-      }
-      if (user.getPerkZycia() == 3) {
-     p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(Main.getPlugin().getConfiguration().getPerkZycia3());
-      }
-   if (user.getPerkZycia() == 4) {
-        p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(Main.getPlugin().getConfiguration().getPerkZycia4());
-   }
-      
-      //perk szybkosci
-    if (user.getPerkSzybkosci() == 0) {
         p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(0.1D);
+        p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(2.0D);
+        p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(4.0D);
+        user.setPerkZycia(0);
+        user.setPerkSzybkosci(0);
+        user.setPerkSily(0);
+        user.setPerkSzybkosciAtaku(0);
+        user.setPerkWampiryzmu(0);
+        user.setPerkDropu(0);
+        user.save();
     }
-      if (user.getPerkSzybkosci() == 1) {
-        p.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED).setBaseValue(Main.getPlugin().getConfiguration().getPerkSzybkosci1());
-    }
-    
-    //perk sily
-    if (user.getPerkSily() == 0) {
-      p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(2.0D);
-    }
-    if (user.getPerkSily() == 1) {
-      p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(Main.getPlugin().getConfiguration().getPerkSily1());
-    }
-    if (user.getPerkSily() == 2) {
-    	  p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(Main.getPlugin().getConfiguration().getPerkSily2());
-    }
-    if (user.getPerkSily() == 3) {
-    	  p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(Main.getPlugin().getConfiguration().getPerkSily3());
-    }
-    if (user.getPerkSily() == 4) {
-    	  p.getAttribute(Attribute.GENERIC_ATTACK_DAMAGE).setBaseValue(Main.getPlugin().getConfiguration().getPerkSily4());
-    }
-   //perk szybkosci ataku
-    
-    if (user.getPerkSzybkosciAtaku() == 0) {
-      p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(4.0D);
-    }
-    if (user.getPerkSzybkosciAtaku() == 1) {
-      p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(Main.getPlugin().getConfiguration().getPerkSzybkosciAtaku1());
-    }
-    if (user.getPerkSzybkosciAtaku() == 2) {
-      p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(Main.getPlugin().getConfiguration().getPerkSzybkosciAtaku2());
-    }
-    if (user.getPerkSzybkosciAtaku() == 3) {
-      p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(Main.getPlugin().getConfiguration().getPerkSzybkosciAtaku3());
-    }
-      if (user.getPerkSzybkosciAtaku() == 4) {
-          p.getAttribute(Attribute.GENERIC_ATTACK_SPEED).setBaseValue(Main.getPlugin().getConfiguration().getPerkSzybkosciAtaku4());
-      }
 
-
-  }
+private static int getIloscEsencjiAnubisa(int perkLevel) {
+    return switch (perkLevel) {
+        case 1 -> 50;
+        case 2 -> 50;
+        case 3 -> 50;
+        case 4 -> 50;
+        default -> 50;
+    };
+}
 }
